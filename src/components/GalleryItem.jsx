@@ -1,7 +1,6 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
-function GalleryItem (props){
-
+function GalleryItem(props) {
     const [viewDetails, setViewDetails] = useState(false)
 
     const simpleStyle = {
@@ -22,29 +21,30 @@ function GalleryItem (props){
         'color': 'yellow'
     }
     
-    const simpleView=() => {
-        return(
+
+    const simpleView = () => {
+        return (
             <div style={simpleStyle}>
-                <h3> {props.items.trackName}</h3>
-                <h4> {props.items.collectionName}</h4>
+                <h3>{props.item.trackName}</h3>
+                <h4>{props.item.collectionName}</h4>
             </div>
         )
     }
-    const detailView =() => {
+
+    const detailView = () => {
         return (
-            <div style={detailStyle}> 
-                <h2> {props.items.trackName}</h2>
-                <h3> {props.items.collectionName}</h3>
-                <h4> {props.items.primaryGenreName}</h4>
-                <h4> {props.items.releaseDate}</h4>
+            <div style={detailStyle}>
+                <h2>{props.item.trackName}</h2>
+                <h3>{props.item.collectionName}</h3>
+                <h4>{props.item.primaryGenreName}</h4>
+                <h4>{props.item.releaseDate}</h4>
             </div>
         )
     }
 
     return (
-        <div onClick={() => setViewDetails(!viewDetails)} style= {{display: 'inline-block'}}>
-           {viewDetails ? detailView() : simpleView}
-
+        <div onClick={() => setViewDetails(!viewDetails)} style={{ display: 'inline-block' }}>
+            {viewDetails ? detailView() : simpleView()}
         </div>
     )
 }
