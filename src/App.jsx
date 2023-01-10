@@ -1,9 +1,13 @@
 import { useState, useRef } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css';
 import Gallery from './Components/Gallery'
 import SearchBar from './Components/SearchBar'
 import { DataContext } from './Context/DataContext'
 import { SearchContext } from './Context/SearchContext'
+import { AlbumView } from './components/AlbumView'
+import { ArtistView } from './components/ArtistView'
+
 
 function App() {
   const [data, setData] = useState([])
@@ -37,6 +41,8 @@ function App() {
       <DataContext.Provider value={data} >
         <Gallery />
       </DataContext.Provider>
+      <AlbumView />
+      <ArtistView />
     </div>
   );
 }
